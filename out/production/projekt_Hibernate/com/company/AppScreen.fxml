@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AppController">
+   <children>
+      <Label layoutX="667.0" layoutY="14.0" text="Panel administracyjny" />
+      <Button layoutX="724.0" layoutY="350.0" mnemonicParsing="false" onAction="#backMenu" text="Wstecz" />
+      <Button layoutX="20.0" layoutY="233.0" mnemonicParsing="false" onAction="#buttonwyswietl" text="Wyswietl rekord" />
+      <Label fx:id="labelwyswietl" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="147.0" layoutY="231.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="55.0" prefWidth="235.0" text="info" wrapText="true" />
+      <TextField fx:id="textFieldwyswietl" layoutX="20.0" layoutY="261.0" prefHeight="25.0" prefWidth="81.0" promptText="podaj nr" />
+      <VBox layoutX="29.0" layoutY="38.0" prefHeight="175.0" prefWidth="159.0">
+         <children>
+            <TextField fx:id="textimie" promptText="imie" />
+            <TextField fx:id="textnazwisko" promptText="nazwisko" />
+            <TextField fx:id="textpkt" promptText="pkt (0-100)" />
+            <TextField fx:id="textgra" promptText="gra (cs, lol, dota2)" />
+            <Button mnemonicParsing="false" onAction="#buttonDodaj" prefHeight="30.0" prefWidth="162.0" text="Dodaj" />
+            <Label fx:id="labeldodaj" alignment="TOP_LEFT" prefHeight="43.0" prefWidth="159.0" text="udało sie ?" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Label layoutX="29.0" layoutY="14.0" text="Dodawanie rekordu" />
+      <Button layoutX="17.0" layoutY="309.0" mnemonicParsing="false" onAction="#buttonWiekszeOd" text="Wyswietl &gt;= pkt od" />
+      <TextField fx:id="textFieldwiekszeOd" layoutX="20.0" layoutY="337.0" prefHeight="25.0" prefWidth="81.0" promptText="podaj pkt" />
+      <ScrollPane layoutX="179.0" layoutY="295.0" prefHeight="85.0" prefWidth="504.0">
+        <content>
+          <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <children>
+                  <Label fx:id="labelWiekszeOd" alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="info" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <VBox layoutX="232.0" layoutY="38.0" prefHeight="175.0" prefWidth="159.0">
+         <children>
+            <TextField fx:id="textEdytujId" promptText="id" />
+            <TextField fx:id="textEdytujImie" promptText="imie" />
+            <TextField fx:id="textEdytujNazwisko" promptText="nazwisko" />
+            <TextField fx:id="textEdytujPkt" promptText="pkt" />
+            <TextField fx:id="textEdytujGra" promptText="gra" />
+            <Button mnemonicParsing="false" onAction="#buttonEdytuj" prefHeight="26.0" prefWidth="163.0" text="Edytuj" />
+         </children>
+      </VBox>
+      <Label layoutX="232.0" layoutY="14.0" text="Edycja rekordu po id" />
+   </children>
+</Pane>
