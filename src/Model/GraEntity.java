@@ -5,6 +5,9 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "gra", schema = "dbo", catalog = "projektHi")
+@NamedQueries({
+        @NamedQuery(name = "wyniki.game", query = "select e from GraEntity e where e.id=:idgry")
+})
 public class GraEntity {
     @Id
     @Column(name = "id", nullable = false)
@@ -30,6 +33,14 @@ public class GraEntity {
         this.name = name;
     }
 
+    public GraEntity() {
+    }
+
+    public GraEntity(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -42,5 +53,11 @@ public class GraEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id, name);
+    }
+
+    @Override
+    public String toString() {
+        return " idgry = " + id +
+                ", nazwa gry = " + name;
     }
 }

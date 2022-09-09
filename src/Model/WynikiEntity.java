@@ -7,11 +7,13 @@ import java.util.Objects;
 @Table(name = "wyniki", schema = "dbo", catalog = "projektHi")
 @NamedQueries({
         @NamedQuery(name = "wyniki.findAll", query = "select e from WynikiEntity e"),
-        @NamedQuery(name = "wyniki.findByNameAndSurname", query = "select e from WynikiEntity e where e.name=:name and e.surname=:surname ")
+        @NamedQuery(name = "wyniki.findByNameAndSurname", query = "select e from WynikiEntity e where e.name=:name and e.surname=:surname"),
+        @NamedQuery(name = "wyniki.findMore", query = "select e from WynikiEntity e where e.pkt>=:pkt")
+        //@NamedQuery(name = "wyniki.najwiecejZgry", query = "select e from WynikiEntity e where ")
 })
 public class WynikiEntity {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private int id;
 
@@ -32,7 +34,16 @@ public class WynikiEntity {
     @JoinColumn(name = "idgry", referencedColumnName = "id")
     private GraEntity graEntity;
 
+    public WynikiEntity(String name, String surname, Integer pkt, GraEntity graEntity) {
+        this.name = name;
+        this.surname = surname;
+        this.pkt = pkt;
+        this.graEntity = graEntity;
+    }
 
+    public WynikiEntity() {
+
+    }
 
     public int getId() {
         return id;
@@ -66,6 +77,14 @@ public class WynikiEntity {
         this.pkt = pkt;
     }
 
+    public GraEntity getGraEntity() {
+        return graEntity;
+    }
+
+    public void setGraEntity(GraEntity graEntity) {
+        this.graEntity = graEntity;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -81,4 +100,14 @@ public class WynikiEntity {
     public int hashCode() {
         return Objects.hash(id, name, surname, pkt);
     }
+
+    @Override
+    public String toString() {
+        return "idgracza = " + id +
+                ", imie = " + name +
+                ", nazwisko = " + surname +
+                ", pkt = " + pkt + "," +
+                graEntity + "\n";
+    }
+
 }
