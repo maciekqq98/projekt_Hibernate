@@ -1,3 +1,3 @@
 "# projekt_Hibernate" 
-##sql windows server 
-#javafx 16
+# sql windows server 
+# javafx 16
